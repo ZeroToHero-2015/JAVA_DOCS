@@ -60,6 +60,9 @@ public class Exercise1{
         testValues.add(sum);
         testValues.add(min);
         testValues.add(max);
+        System.out.println(sum);
+        System.out.println(min);
+        System.out.println(max);
 
         return testValues;
     }
@@ -92,7 +95,9 @@ public class Exercise1{
         testValues.add(sum);
         testValues.add(min);
         testValues.add(max);
-
+        System.out.println(sum);
+        System.out.println(min);
+        System.out.println(max);
         return testValues;
     }
 
@@ -126,6 +131,9 @@ public class Exercise1{
         testValues.add(sum);
         testValues.add(min);
         testValues.add(max);
+        System.out.println(sum);
+        System.out.println(min);
+        System.out.println(max);
 
         return testValues;
     }
