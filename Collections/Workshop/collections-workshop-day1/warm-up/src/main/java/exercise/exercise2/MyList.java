@@ -1,6 +1,8 @@
 package exercise.exercise2;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Created by Radu.Hoaghe on 20.04.2015.
@@ -44,6 +46,20 @@ public class MyList<Integer> extends ArrayList<Integer> {
         differentElements = 0;
     }
 
+    public boolean add(Integer integer){
+        if(!this.contains(integer)){
+            differentElements++;
+        }
+        return super.add(integer);
+    }
+
+    public boolean addALL(Collection<? extends Integer> c){
+        for(Integer i: c){
+            this.add(i);
+        }
+        return this.size() !=0;
+    }
+
     // TODO Exercise #2 a) Override add() and addAll() methods so that the list should retain the number of
     // TODO Exercise #2 a) different elements (Hint: check out the methods signatures on the List documentation)
 
@@ -56,6 +72,50 @@ public class MyList<Integer> extends ArrayList<Integer> {
 
     // TODO Exercise #2 d) Return the number of different elements that exist into the list
     public int getDifferentElements() {
-        return 0;
+        return differentElements;
     }
+
+    public Integer remove(int index){
+        Integer oldValue = get(index);
+        if(Collections.frequency(this,oldValue)==1){
+            differentElements--;
+        }
+        return super.remove(index);
+    }
+
+    public void clear(){
+        differentElements=0;
+        super.clear();
+    }
+
+    public boolean remove(Object obj){
+        if(Collections.frequency(this,obj)==1){
+            differentElements--;
+        }
+        return super.remove(obj);
+    }
+
+    public void add(int index, Integer elem){
+        if(!this.contains(elem)){
+            differentElements++;
+        }
+        super.add(index, elem);
+    }
+
+    public boolean addAll(int index, Collection<? extends Integer> c) {
+        for (Integer i:c){
+            boolean same = false;
+            for(Integer j: this){
+                if(i==j){
+                    same = true;
+                }
+            }
+            if(same==false){
+                differentElements++;
+            }
+        }
+        return super.addAll(index, c);
+    }
+
+
 }
