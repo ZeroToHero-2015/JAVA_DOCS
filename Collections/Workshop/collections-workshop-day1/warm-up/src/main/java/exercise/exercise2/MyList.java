@@ -54,8 +54,10 @@ public class MyList<Integer> extends ArrayList<Integer> {
     }
 
     public boolean addALL(Collection<? extends Integer> c){
-        for(Integer i: c){
-            this.add(i);
+        for(Integer value:c){
+            if(!this.contains(value)){
+                differentElements++;
+            }
         }
         return this.size() !=0;
     }
@@ -103,18 +105,26 @@ public class MyList<Integer> extends ArrayList<Integer> {
     }
 
     public boolean addAll(int index, Collection<? extends Integer> c) {
-        for (Integer i:c){
-            boolean same = false;
-            for(Integer j: this){
-                if(i==j){
-                    same = true;
-                }
-            }
-            if(same==false){
+//        for (Integer i:c){
+//            boolean same = false;
+//            for(Integer j: this){
+//                if(i==j){
+//                    same = true;
+//                }
+//            }
+//            if(same==false){
+//                differentElements++;
+//            }
+//        }
+        for(Integer value:c){
+            if(!this.contains(value)){
                 differentElements++;
             }
         }
-        return super.addAll(index, c);
+
+
+
+        return super.addAll(index,c);
     }
 
 
